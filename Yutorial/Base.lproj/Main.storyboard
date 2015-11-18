@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Zr-6D-v0P">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Yutorials-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Yutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pxw-vO-WT9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="yutorialCell" textLabel="plt-WK-p35" style="IBUITableViewCellStyleDefault" id="YTh-1q-ayx" customClass="YutorialTableCell" customModule="Yutorial" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YTh-1q-ayx" id="TKG-MZ-RWP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="plt-WK-p35">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="tutorialName" destination="plt-WK-p35" id="anu-Wf-RXr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="A86-BA-1Sx"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Zfn-dh-Ope"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pxw-vO-WT9" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="0ta-L1-Ob8"/>
+                            <constraint firstItem="Pxw-vO-WT9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="1XG-wI-wFv"/>
+                            <constraint firstItem="Pxw-vO-WT9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8ir-Bb-HR0"/>
+                            <constraint firstAttribute="trailing" secondItem="Pxw-vO-WT9" secondAttribute="trailing" id="ozf-GQ-SIK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Yutorials" id="s2X-ST-FM2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="OKT-2h-GXu">
+                            <connections>
+                                <action selector="sectionButtonTapped:" destination="vXZ-lx-hvc" id="ljh-pM-Tw9"/>
+                                <segue destination="X1X-1k-wEc" kind="modal" id="owe-TU-YEN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sectionButton" destination="OKT-2h-GXu" id="jPf-vD-nDF"/>
+                        <outlet property="tutorialTableView" destination="Pxw-vO-WT9" id="p18-jz-UUJ"/>
+                        <segue destination="YBK-ft-vNx" kind="show" identifier="showYutorialDetails" id="Vis-60-ZY6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376" y="431"/>
+        </scene>
+        <!--Yutorial Detail View Controller-->
+        <scene sceneID="BWk-Ge-TiZ">
+            <objects>
+                <viewController id="YBK-ft-vNx" userLabel="Yutorial Detail View Controller" customClass="YutorialDetailViewController" customModule="Yutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kro-5W-buo"/>
+                        <viewControllerLayoutGuide type="bottom" id="N24-rA-L9A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="goS-TJ-Cu0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8O-yW-JY2">
+                                <rect key="frame" x="167" y="169" width="266" height="262"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="B1p-1V-o3l"/>
+                    <connections>
+                        <outlet property="tutorialLabel" destination="E8O-yW-JY2" id="gwn-Xg-drm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qXw-Uy-08B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2040" y="439"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vDG-hP-AZN">
+            <objects>
+                <viewController id="X1X-1k-wEc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hAR-qw-LIK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rlh-69-I0h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RqS-sX-qbQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnd-7T-rcA">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Tutorial" id="UyG-ZC-ZXf">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="c4g-uh-48H"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="nGX-ax-KW0"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hp-ts-BZr">
+                                <rect key="frame" x="110" y="170" width="361" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UaJ-tM-tyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2040" y="1128"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VDg-uC-2at">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Zr-6D-v0P" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yre-CZ-UnQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="hBy-0v-WTO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nf4-d4-R8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="580" y="431"/>
+        </scene>
+    </scenes>
+</document>
